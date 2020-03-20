@@ -1,0 +1,57 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #8b7a74;
+  color: #fff7b0;
+}
+.card-holder {
+  display: flex;
+}
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(0.8);
+   /*property specifies how nested elements are rendered in 3D space z-index */
+   /* without this value nested element won't be shown on z-index */
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 0 0 10px rgba(0,0,0);
+}
+.memory-card:active {
+  transform: scale(0.3);
+  transition: transform .2s;
+}
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  /* this is important to hide the backside of an element */
+  backface-visibility: hidden;
+}
+
+.front-face {
+  /* initially we need to rotate our first image so it shows only backside */
+  transform: rotateY(180deg);
+}

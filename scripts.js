@@ -36,7 +36,7 @@ function flipCard() {
   // check if lockboard is true and 
   // if current clicked element is equal to firstCard
   // if both true return nothing means don't flip
-  // if (lockBoard) return;
+  if (lockBoard) return;
   if (this === firstCard) return;
 
 // otherwise add "flip" to classList of current element
